@@ -1,0 +1,121 @@
+module Jupyter;
+
+provide all;
+export all;
+
+use StdIO: all;
+use Array: all;
+
+/* 
+ *  Module to print sac arrays in python format.  
+ *  Works for all SaC datatypes.
+ */
+
+
+void print_serialized(byte[*] a) { print_serialized(toll(a)); }
+void print_serialized(short[*] a) { print_serialized(toll(a)); }
+void print_serialized(int[*] a) { print_serialized(toll(a)); }
+void print_serialized(long[*] a) { print_serialized(toll(a)); }
+
+void print_serialized(ubyte[*] a) { print_serialized(toull(a)); }
+void print_serialized(ushort[*] a) { print_serialized(toull(a)); }
+void print_serialized(uint[*] a) { print_serialized(toull(a)); }
+void print_serialized(ulong[*] a) { print_serialized(toull(a)); }
+
+void print_serialized(float[*] a) { print_serialized(tod(a)); }
+
+
+void print_serialized (longlong[*] a){
+    StdIO::printf ("[");
+
+    for(i=0; i< shape(a)[0]; i++) {
+       print_serialized (a[i]);
+       if (i<shape(a)[0]-1)
+          StdIO::printf(", ");
+
+    }
+    StdIO::printf ("]");
+}
+void print_serialized (longlong a){
+   StdIO::printf ("%d ", a);
+}
+
+
+void print_serialized (ulonglong[*] a){
+    StdIO::printf ("[");
+
+    for(i=0; i< shape(a)[0]; i++) {
+       print_serialized (a[i]);
+       if (i<shape(a)[0]-1)
+          StdIO::printf(", ");
+
+    }
+    StdIO::printf ("]");
+}
+void print_serialized (ulonglong a){
+   StdIO::printf ("%d ", a);
+}
+
+
+void print_serialized (double[*] a){
+    StdIO::printf ("[");
+
+    for( i=0; i< shape(a)[0]; i++) {
+       print_serialized (a[i]);
+       if (i<shape(a)[0]-1)
+          StdIO::printf(", ");
+
+    }
+    StdIO::printf ("]");
+}
+void print_serialized (double a){
+   StdIO::printf ("%f ", a);
+}
+
+
+void print_serialized (char[*] a){
+    StdIO::printf ("[");
+
+    for(i=0; i< shape(a)[0]; i++) {
+       print_serialized (a[i]);
+       if (i<shape(a)[0]-1)
+          StdIO::printf(", ");
+
+    }
+    StdIO::printf ("]");
+}
+
+void print_serialized (char a){
+   StdIO::printf ("\"%s\"", a);
+}
+
+// void print_serialized (String::string[*] a){
+//     StdIO::printf ("[");
+
+//     for(i=0; i< shape(a)[0]; i++) {
+//        print_serialized (a[i]);
+//        if (i<shape(a)[0]-1)
+//           StdIO::printf(", ");
+
+//     }
+//     StdIO::printf ("]");
+// }
+
+void print_serialized (String::string a){
+   StdIO::printf ("\"%s\"", a);
+}
+
+void print_serialized (bool[*] a){
+    StdIO::printf ("[");
+
+    for(i=0; i< shape(a)[0]; i++) {
+       print_serialized (a[i]);
+       if (i<shape(a)[0]-1)
+          StdIO::printf(", ");
+
+    }
+    StdIO::printf ("]");
+}
+void print_serialized (bool a){
+   StdIO::printf ("%d ", a);
+}

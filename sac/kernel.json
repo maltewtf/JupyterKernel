@@ -1,5 +1,5 @@
 {
-    "argv": ["python3", "<repository-path>/kernel.py", "-f", "{connection_file}"],
-    "display_name": "SaC",
-    "language": "sac"
+    \"argv\": [\"python3\", \"<repository-path>/kernel.py\", \"-f\", \"{connection_file}\"],
+    \"display_name\": \"SaC\",
+    \"language\": \"sac\"
 }

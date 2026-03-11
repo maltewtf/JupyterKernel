@@ -1,0 +1,7 @@
+/build/*.out*
+/.ipynb*
+/__pycache__/
+.vscode
+log.txt
+/lib/host
+/lib/tree
